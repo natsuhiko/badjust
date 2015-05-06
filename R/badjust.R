@@ -15,7 +15,8 @@
 
 b.adjust <-
 function(p, ntests, sub=rep(T,length(p)), fixParam=c(0,0,0), trace=F){
-	if((sum(p<0)+sum(p>1))>0){stop("Incorrect P-values!")}
+	if(length(p)!=length(ntests)){stop("Length diffder!")}
+	if((sum(p<0,na.rm=T)+sum(p>1,na.rm=T))>0){stop("Incorrect P-values!")}
 	rmflag = is.na(p) | ntests==0 | p==1 | p==0 | is.na(ntests)
 	rmflag[is.na(rmflag)]=T
 	rmflag[!sub]=T
