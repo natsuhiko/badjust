@@ -1,0 +1,2 @@
+useDynLib(badjust)
+export(b.adjust,badp,ppplot)
